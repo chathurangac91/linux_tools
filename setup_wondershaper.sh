@@ -1,4 +1,6 @@
 #!/bin/bash
+# Wondershaper bandwidth limiter script
+# Version : 1.2.0
 
 if [[ $UID -ne 0 ]]; then
    echo -e "\e[95mYou must be root to do this.\e[0m" 1>&2
@@ -11,6 +13,7 @@ echo  # Move to the next line after the user input
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo -e "\e[96mInstalling and setup Wondershaper\e[0m"
+    sudo apt-get update -y
     apt install wondershaper net-tools -y
 
     echo -e "\e[96mHow much remaining bandwidth is there on your server?\e[0m"
