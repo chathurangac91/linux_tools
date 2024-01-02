@@ -1,13 +1,13 @@
 #!/bin/bash
 
-echo -e "\e[96mDo you want to configure Wondershaper Bandwidth Limiter?\e[0m"
-read -p "Enter choice (y/n): " -n 1 -r
-echo  # Move to the next line after the user input
-
 if [[ $EUID -ne 0 ]]; then
    echo -e "\e[95mYou must be root to do this.\e[0m" 1>&2
    exit 100
 fi
+
+echo -e "\e[96mDo you want to configure Wondershaper Bandwidth Limiter?\e[0m"
+read -p "Enter choice (y/n): " -n 1 -r
+echo  # Move to the next line after the user input
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo -e "\e[96mInstalling and setup Wondershaper\e[0m"
