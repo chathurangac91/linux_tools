@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $EUID -ne 0 ]]; then
+if [[ $UID -ne 0 ]]; then
    echo -e "\e[95mYou must be root to do this.\e[0m" 1>&2
    exit 100
 fi
