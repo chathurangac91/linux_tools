@@ -14,9 +14,30 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     apt install wondershaper net-tools -y
 
     echo -e "\e[96mHow much remaining bandwidth is there on your server?\e[0m"
-	read -p "Enter in TB: " tb
+
+	while true; do
+	    read -p "Enter in TB: " tb
+
+	    # Check if tb is a number
+	    if [[ $tb =~ ^[0-9]+$ ]]; then
+	        break  # Exit the loop if tb is a number
+	    else
+	        echo -e "\e[91mInvalid input. Please enter a valid number.\e[0m"
+	    fi
+	done
+
 	echo -e "\e[96mHow many days do you want to use this bandwidth?\e[0m"
-	read -p "Enter a number: " days
+
+	while true; do
+	    read -p "Enter a number: " days
+
+	    # Check if tb is a number
+	    if [[ $days =~ ^[0-9]+$ ]]; then
+	        break  # Exit the loop if tb is a number
+	    else
+	        echo -e "\e[91mInvalid input. Please enter a valid number.\e[0m"
+	    fi
+	done
 
 	tbInBytes=$((tb * 1000000000000))
 	daysInSeconds=$((days * 86400))
