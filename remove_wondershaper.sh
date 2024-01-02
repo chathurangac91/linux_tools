@@ -14,6 +14,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	 # Using the ip command to retrieve the name of the active network interface
 	interface_name=$(ip -o link show | awk -F': ' '{print $2}' | grep -v "lo" | head -n1)
 	wondershaper clear $interface_name
-	apt remove wondershaper
+	apt remove wondershaper -y
 	(crontab -l | grep -v -F "@reboot wondershaper" ; echo "") | crontab -
 fi
